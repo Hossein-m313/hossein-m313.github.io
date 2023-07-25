@@ -1,0 +1,115 @@
+main {
+  position: relative;
+  width: 100%;
+}
+#videos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  direction: rtl;
+  height: fit-content;
+  gap: 2rem;
+  width: 100%;
+}
+h3 {
+  color: aliceblue;
+  font-size: 3rem;
+  margin: 3rem 0 2rem;
+  z-index: 1;
+}
+.video-background {
+  position: absolute;
+  top: -6rem;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  opacity: 0.3;
+}
+.video-container {
+  background-color: black;
+  border-radius: 2rem;
+  z-index: 1;
+  color: aliceblue;
+  border: 1px aliceblue solid;
+  padding: 1rem;
+}
+.video-container video {
+  border-radius: 1rem;
+  width: 100%;
+  background-color: black;
+  border: 1px aliceblue solid;
+  height: 15rem;
+}
+.video-container video:fullscreen {
+  border: none;
+  border-radius: 0;
+}
+.video-container h4 {
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.back-page {
+  display: inline-block;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  border-radius: 1.5rem;
+  padding: 0.8rem 1rem;
+  color: aliceblue;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.back-page svg {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 1px;
+}
+.back-page:hover svg {
+  animation: arrow-go 0.7s;
+}
+
+@media (max-width: 1300px) {
+  #videos-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+@media (max-width: 1000px) {
+  #videos-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  #videos-container {
+    grid-template-columns: 1fr;
+  }
+  .back-page {
+    position: static;
+    margin-top: 3rem;
+  }
+  h3 {
+    margin-top: 1rem;
+  }
+}
+
+@keyframes arrow-go {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 15px;
+  }
+  100% {
+    right: 0;
+  }
+}

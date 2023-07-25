@@ -1,0 +1,274 @@
+header {
+  --header-horizental-padding: 0;
+  --header-vertical-padding: 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--header-vertical-padding) var(--header-horizental-padding);
+  overflow: hidden;
+  transition: all 0.5s;
+  position: sticky;
+  top: -1px;
+  z-index: 300;
+  height: 5rem;
+  max-width: 100rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.pinned-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+header .icon {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  align-items: center;
+  color: aliceblue;
+}
+#rocket {
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  animation: rocket 1s 0.5s;
+}
+header .bar-list {
+  list-style: none;
+  display: flex;
+  gap: 7px;
+}
+header li a {
+  font-weight: 500;
+  text-decoration: none;
+  color: aliceblue;
+  border-radius: 14px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  transition: all 0.5s;
+}
+header .bar-list li a:hover {
+  border: 1px solid aliceblue;
+}
+header .account a {
+  text-decoration: none;
+  color: aliceblue;
+  display: inline-block;
+  transition: all 0.3s;
+}
+header .account .sign-up {
+  font-weight: 900;
+}
+header .account .sign-in {
+  background-color: rgb(0, 80, 179);
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 4rem;
+  text-align: center;
+  margin: 0 10px;
+}
+header .account .sign-in:hover {
+  background-color: rgb(0, 56, 125);
+}
+header .account .sign-up:hover {
+  color: rgb(61, 154, 235);
+}
+
+#hamburger-menu-icon {
+  cursor: pointer;
+  gap: 8px;
+  display: none;
+  padding: 0.5rem;
+  flex-direction: column;
+  align-items: end;
+}
+#hamburger-menu-icon .hamburger-menu-line {
+  width: 2rem;
+  height: 0.2rem;
+  transition: all 0.5s;
+  background-color: aliceblue;
+  border-radius: 1rem;
+}
+#hamburger-menu-icon:hover .hamburger-menu-line:nth-child(1) {
+  width: 1.5rem;
+}
+#hamburger-menu-icon:hover .hamburger-menu-line:nth-child(3) {
+  width: 1rem;
+}
+menu {
+  --menu-size: 20rem;
+  display: flex;
+  height: 100vh;
+  width: var(--menu-size);
+  max-width: 40%;
+  transition: all 0.3s;
+  right: calc(-2rem - var(--menu-size));
+  top: 0;
+  z-index: 500;
+  background: linear-gradient(40deg, rgb(18, 4, 36) 0%, rgb(51, 9, 47) 100%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+menu h2 {
+  font-size: 2rem;
+  color: aliceblue;
+}
+menu img {
+  width: 6rem;
+}
+menu ul {
+  transition: all 0.5s;
+  list-style: none;
+  margin-top: 1rem;
+}
+menu li {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  margin: 2px 0;
+  padding: 0.5rem 1rem;
+}
+menu li a {
+  color: aliceblue;
+  text-decoration: none;
+}
+menu li div {
+  height: 2px;
+  background-color: aliceblue;
+  margin: 0 auto;
+  border-radius: 1rem;
+  width: 0;
+  transition: all 0.3s;
+}
+menu svg {
+  position: absolute;
+  fill: aliceblue;
+  top: 0.6rem;
+  z-index: 100;
+  right: 1rem;
+  cursor: pointer;
+  transition: width 0.5s, height 0.5s;
+}
+menu svg:hover {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes rocket {
+  0% {
+    bottom: 0;
+    left: 0;
+  }
+  50% {
+    bottom: 100px;
+    left: 100px;
+  }
+  51% {
+    bottom: -100px;
+    left: -100px;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+  }
+}
+@media (max-width: 1200px) {
+  #hamburger-menu-icon {
+    display: flex;
+  }
+  header .bar-list {
+    display: none;
+  }
+  header .account {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  menu {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    --header-vertical-padding: 0.2rem;
+    height: fit-content;
+  }
+  #rocket {
+    --size: calc(3vw + 3rem);
+    margin-right: 3px;
+  }
+  menu{
+    --menu-size: 14rem;
+  }
+}
+@media (max-width: 500px) {
+  header {
+    height: 4rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  menu{
+    --menu-size: 100vw;
+  }
+}
+@media (max-width: 350px) {
+  #hamburger-menu-icon {
+    gap: 4px;
+  }
+  #hamburger-menu-icon .hamburger-menu-line {
+    width: 1.5rem;
+  }
+  #hamburger-menu-icon:hover .hamburger-menu-line:nth-child(1) {
+    width: 1rem;
+  }
+  #hamburger-menu-icon:hover .hamburger-menu-line:nth-child(3) {
+    width: 0.5rem;
+  }
+  header {
+    height: 2.5rem;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  #rocket {
+    --size: calc(4vw + 2rem);
+    margin-right: 3px;
+  }
+  #menu .hamburger-menu-line {
+    width: 2rem;
+    height: 0.2rem;
+    transition: all 0.5s;
+    background-color: aliceblue;
+    border-radius: 1rem;
+    position: relative;
+  }
+}
+@keyframes back-arrow-in {
+  0% {
+    transform: translateX(4rem);
+  }
+  70% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes back-arrow-out {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(4rem);
+  }
+}
